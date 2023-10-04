@@ -1,8 +1,10 @@
-const Total = (props) => {
+import "./Total.css"
+
+const Total = ({total}) => {
 
     return (
 
-        <p>Number of exercises {props.total}</p>
+        <p className="p">Number of exercises {total}</p>
     )
 
 }
