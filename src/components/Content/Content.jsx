@@ -1,21 +1,15 @@
 import Part from "../Part/Part";
+import Total from "../Total/Total";
 
-const Content = () => {
+const Content = ({parts}) => {
 
-  const part1 = "Fundamentals of React";
-  const exercises1 = 10;
-  const part2 = "Using props to pass data";
-  const exercises2 = 7;
-  const part3 = "State of component";
-  const exercises3 = 14;
-
-
+    const total = parts.reduce((total, part) => total + part.exercises, 0);
 
     return (
         <>
-        <Part part={part1+ " "+ exercises1} />
-        <Part part={part2+ " "+ exercises2} />
-        <Part part={part3+ " "+ exercises3} />
+          {parts.map((part) =>(
+            <Part key={part.id} name={part.name} exercises={part.exercises}   />))}
+          <Total total={total} />  
         </>
     )
 
